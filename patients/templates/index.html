@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container table-responsive py-5"><center><h2>Patient Details</h2></center><a href="{% url 'add' %}"><button class="btn btn-primary" style="float: right; margin-bottom:15px;" ><i class='fa fa-plus'></i>Add</button></a><br>
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Age</th>
+          <th>Disease</th>
+          <th>Doctor Name</th>
+          <th>Doctor fees</th>
+          <th>Treatment Started</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+      </thead>
+
+        <tbody>
+      {% for t in tasks %}
+        <tr>
+          <th scope="row">{{t.first}}</th>
+          <td>{{t.last}}</td>
+          <td>{{t.gender}}</td>
+          <td>{{t.age}}</td>
+          <td>{{t.disease}}</td>
+          <td>{{t.doctor_name}}</td>
+          <td>{{t.doctor_fees}}</td>
+          <td>{{t.date}}</td>
+            <td><a href="{% url 'update' t.id %}"><button class="btn btn-primary"><i class='fa fa-pencil'></i> Edit</button></a></td>
+            <td><a href="{% url 'delete' t.id %}"><button class="btn btn-danger"><i class="fa fa-trash"></i> Trash</button></a></td>
+
+        </tr>
+      {% endfor %}
+      </tbody>
+
+    </table>
+    </div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+
+</body>
+</html>
